@@ -2,14 +2,16 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { CircularRating } from "./CircularRating";
+import { CircularRating1 } from "./CircularRating1";
+import { CircularRating2 } from "./CircularRating2";
 
 interface Movie {
   id: string;
   title: string;
   poster: string;
   backdrop: string;
-  rating: number;
+  rateTomato: number;
+  rateIMDB: number;
   year: number;
   genre: string[];
   description: string;
@@ -25,7 +27,8 @@ const heroMovies: Movie[] = [
     poster: "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
     backdrop:
       "https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
-    rating: 57,
+    rateTomato: 47,
+    rateIMDB: 8.7,
     year: 2024,
     genre: ["Sci-Fi", "Adventure", "Drama"],
     description:
@@ -39,7 +42,8 @@ const heroMovies: Movie[] = [
     poster: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
     backdrop:
       "https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
-    rating: 93,
+    rateTomato: 53,
+    rateIMDB: 7.7,
     year: 2023,
     genre: ["Biography", "Drama", "History"],
     description:
@@ -53,7 +57,8 @@ const heroMovies: Movie[] = [
     poster: "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
     backdrop:
       "https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/nGxUxi3PfXDRm7Vg95VBNgNM8yc.jpg",
-    rating: 95,
+    rateTomato: 85,
+    rateIMDB: 5.7,
     year: 2023,
     genre: ["Animation", "Action", "Adventure"],
     description:
@@ -148,9 +153,12 @@ export function HeroCarousel() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 justify-items-center lg:justify-items-start">
                     {/* Component 1 */}
                     <div className="flex flex-col lg:flex-row items-center gap-2 text-center lg:text-left">
-                      <CircularRating rating={currentMovie.rating} size="lg" />
+                      <CircularRating1
+                        rating={currentMovie.rateIMDB}
+                        size="lg"
+                      />
                       <div>
-                        <p className="text-purple-300 text-sm font-medium">
+                        <p className="text-purple-300 text-base font-bold">
                           IMDB
                         </p>
                         <p className="text-gray-400 text-xs">
@@ -165,9 +173,12 @@ export function HeroCarousel() {
                 /* Add a specific class for targeting */
                 custom-hide-on-small-devices"
                     >
-                      <CircularRating rating={currentMovie.rating} size="lg" />
+                      <CircularRating2
+                        rating={currentMovie.rateTomato}
+                        size="lg"
+                      />
                       <div>
-                        <p className="text-purple-300 text-sm font-medium">
+                        <p className="text-purple-300 text-base font-bold">
                           Tomatometer
                         </p>
                         <p className="text-gray-400 text-xs">

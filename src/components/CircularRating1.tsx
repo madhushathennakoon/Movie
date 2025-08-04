@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 
 interface CircularRatingProps {
-  rating: number; // 0-100
+  rating: number; // 0-10
   size?: "sm" | "md" | "lg";
   animated?: boolean;
   className?: string;
 }
 
-export function CircularRating({
+export function CircularRating1({
   rating,
   size = "md",
   animated = true,
@@ -36,7 +36,7 @@ export function CircularRating({
       container: "w-24 h-24",
       text: "text-lg",
       strokeWidth: 5,
-      fontSize: "16px",
+      fontSize: "25px",
     },
   };
 
@@ -44,16 +44,13 @@ export function CircularRating({
   const radius = 45;
   const circumference = 2 * Math.PI * radius;
   const strokeDasharray = circumference;
-  const strokeDashoffset =
-    circumference - (displayRating / 100) * circumference;
+  const strokeDashoffset = circumference - (displayRating / 10) * circumference;
 
   // Get color based on rating
   const getColor = (score: number) => {
-    if (score >= 80)
-      return { main: "#10B981", glow: "rgba(16, 185, 129, 0.5)" }; // Green
-    if (score >= 60)
-      return { main: "#F59E0B", glow: "rgba(245, 158, 11, 0.5)" }; // Yellow
-    if (score >= 40) return { main: "#EF4444", glow: "rgba(239, 68, 68, 0.5)" }; // Red
+    if (score >= 8) return { main: "#10B981", glow: "rgba(16, 185, 129, 0.5)" }; // Green
+    if (score >= 6) return { main: "#F59E0B", glow: "rgba(245, 158, 11, 0.5)" }; // Yellow
+    if (score >= 4) return { main: "#EF4444", glow: "rgba(239, 68, 68, 0.5)" }; // Red
     return { main: "#6B7280", glow: "rgba(107, 114, 128, 0.5)" }; // Gray
   };
 

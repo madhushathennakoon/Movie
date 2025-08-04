@@ -135,70 +135,73 @@ export function Navigation() {
 
         {/* Mobile Navigation - Enhanced */}
         {isMenuOpen && (
-          <div className="md:hidden glass-card border-t border-white/10 py-4 absolute top-full left-0 right-0 max-h-screen overflow-y-auto">
-            <div className="px-4 space-y-4">
-              {/* Mobile search */}
-              <div className="relative mb-6">
-                <input
-                  type="text"
-                  placeholder="Search movies..."
-                  className="
-                    w-full px-4 py-3 rounded-lg
-                    bg-white/10 backdrop-blur-sm
-                    border border-white/20
-                    text-white placeholder-gray-400
-                    focus:outline-none focus:border-purple-400 focus:bg-white/15
-                    transition-all duration-300
-                  "
-                />
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                  <span className="text-gray-400">🔍</span>
+          <>
+            <div
+              className="mobile-menu-overlay md:hidden"
+              onClick={() => setIsMenuOpen(false)}
+            />
+
+            <div className="md:hidden mobile-glass-card border-t border-cyan-200/30 py-4 absolute top-full left-0 right-0 max-h-[calc(100vh-56px)] overflow-y-auto z-50 neon-glow-intense">
+              <div className="px-4 space-y-4">
+                {/* Search bar with matching theme */}
+                <div className="relative mb-6">
+                  <input
+                    type="text"
+                    placeholder="Search movies..."
+                    className="
+              w-full px-4 py-3 rounded-lg
+              bg-black/20 backdrop-blur-md
+              border border-cyan-200/40
+              text-white placeholder-cyan-100
+              focus:outline-none focus:border-cyan-300 focus:bg-black/30
+              transition-all duration-300
+              shadow-lg shadow-blue-500/20
+            "
+                  />
                 </div>
-              </div>
 
-              {/* Mobile navigation items */}
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`
-                    block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 touch-manipulation
-                    ${
-                      pathname === item.href
-                        ? "text-purple-300 bg-white/10"
-                        : "text-gray-300 hover:text-white hover:bg-white/5"
-                    }
-                  `}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="flex items-center space-x-3">
-                    <span>{item.name}</span>
-                  </span>
-                </Link>
-              ))}
-
-              {/* Mobile auth links */}
-              <div className="pt-4 border-t border-white/10 space-y-3">
-                {authItems.map((item) => (
+                {/* Navigation items */}
+                {navigationItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     className={`
-                      block px-4 py-3 rounded-lg text-base font-medium text-center transition-all duration-300 touch-manipulation
-                      ${
-                        item.name === "Sign Up"
-                          ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white neon-glow"
-                          : "text-gray-300 border border-white/20 hover:border-white/40 hover:bg-white/5"
-                      }
-                    `}
+              block px-4 py-3 rounded-lg text-base font-medium 
+              transition-all duration-300 touch-manipulation
+              ${
+                pathname === item.href
+                  ? "text-white bg-black/30 border border-cyan-200/30 shadow-inner shadow-cyan-400/20"
+                  : "text-cyan-100 hover:text-white hover:bg-black/25 hover:border hover:border-cyan-200/20"
+              }
+            `}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item.name}
+                    <span className="flex items-center space-x-3">
+                      <span>{item.name}</span>
+                    </span>
                   </Link>
                 ))}
+
+                {/* Mobile auth links with enhanced glass effect */}
+                <div className="pt-4 border-t border-white/20 space-y-3">
+                  {authItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`block px-4 py-3 rounded-lg text-base font-medium text-center transition-all duration-300 touch-manipulation ${
+                        item.name === "Sign Up"
+                          ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white neon-glow hover:from-purple-700 hover:to-blue-700 "
+                          : "text-gray-300 border border-white/25 hover:border-white/40 hover:bg-white/10"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </nav>

@@ -119,10 +119,34 @@
     letter-spacing: -0.01em;
   }
 
-  /* Glassmorphism Base */
+  /* Enhanced glass card with stronger blur */
+  .mobile-glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(15, 10, 25, 0.95) 0%,
+      /* Deep cinematic black-purple */ rgba(25, 15, 45, 0.93) 50%,
+      /* Rich dark indigo */ rgba(10, 20, 40, 0.9) 100% /* Dark navy blue */
+    ) !important;
+    backdrop-filter: blur(30px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+    border: 1px solid rgba(200, 220, 255, 0.15) !important; /* Subtle metallic border */
+    box-shadow: 0 10px 50px rgba(98, 0, 234, 0.3),
+      0 5px 25px rgba(0, 212, 255, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Add this for better Android performance */
+  @media (-webkit-device-pixel-ratio: 1.5) {
+    .mobile-glass-card {
+      backdrop-filter: blur(25px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    }
+  }
+
   .glass-card {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); /* <-- ADD THIS */
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
