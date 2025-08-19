@@ -23,14 +23,14 @@ export function CircularRating1({
     sm: {
       container: "w-12 h-12",
       text: "text-xs",
-      strokeWidth: 3,
-      fontSize: "10px",
+      strokeWidth: 6,
+      fontSize: "12px",
     },
     md: {
       container: "w-16 h-16",
       text: "text-sm",
       strokeWidth: 4,
-      fontSize: "12px",
+      fontSize: "16px",
     },
     lg: {
       container: "w-24 h-24",

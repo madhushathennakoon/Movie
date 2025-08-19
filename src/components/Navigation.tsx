@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 
 const navigationItems = [
   { name: "Home", href: "/" },
-  { name: "Reviews", href: "/reviews" },
-  { name: "Trending", href: "/trending" },
-  { name: "Discover", href: "/discover" },
+  { name: "Movies", href: "/reviews" },
+  { name: "TV Shows", href: "/trending" },
+  { name: "Reviews", href: "/discover" },
 ];
 
 const authItems = [

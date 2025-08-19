@@ -1,5 +1,6 @@
 import { HeroCarousel } from "@/components/HeroCarousel";
-
+import Reviews from "@/components/Reviews";
+import { TrendingSliderMovies } from "@/components/TrendingSliderMovies";
 import React from "react";
 
 const HomePage = () => {
@@ -7,6 +8,8 @@ const HomePage = () => {
     <main>
       <div className="min-h-screen ">
         <HeroCarousel />
+        <TrendingSliderMovies />
+        <Reviews />
       </div>
     </main>
   );

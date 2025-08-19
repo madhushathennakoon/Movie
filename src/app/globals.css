@@ -70,8 +70,30 @@
       ),
       linear-gradient(135deg, #0f0c29 0%, #24243e 35%, #313264 100%);
     z-index: -2;
-  }
 
+    /* background: radial-gradient(
+        circle at 20% 30%,
+        rgba(139, 92, 246, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        rgba(30, 27, 75, 0.5) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        rgba(125, 211, 252, 0.2) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(15, 10, 25, 0.95) 0%,
+        rgba(25, 15, 45, 0.93) 50%,
+        rgba(10, 20, 40, 0.9) 100%
+      );
+    z-index: -2; */
+  }
   /* Animated gradient overlay */
   body::after {
     content: "";
@@ -103,6 +125,14 @@
     transform: translateX(100%);
     opacity: 0.6;
   }
+}
+
+.animate-float {
+  animation: float 12s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float-delay 16s ease-in-out infinite;
 }
 
 @layer components {
