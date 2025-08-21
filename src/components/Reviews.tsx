@@ -36,7 +36,7 @@ const reviewCards: ReviewCard[] = [
 
 const Reviews = () => {
   return (
-    <section className="py-8 md:py-12 ">
+    <section className="py-8 md:py-5 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center justify-start gap-x-4 md:justify-between mb-2 md:mb-2">
@@ -58,10 +58,10 @@ const Reviews = () => {
 
         {/* Review Cards */}
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-2 ">
             {/* First (large) card */}
-            <div className="md:col-span-2">
-              <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative h-48 md:h-90">
+            <div className="md:col-span-2 ">
+              <div className="bg-gray-800 rounded-lg overflow-hidden relative h-48 md:h-90 glass-card">
                 <img
                   src={reviewCards[0].poster}
                   alt={reviewCards[0].title}
@@ -83,7 +83,7 @@ const Reviews = () => {
               {reviewCards.slice(1).map((card) => (
                 <div
                   key={card.id}
-                  className="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative h-48 md:h-90"
+                  className="bg-gray-800 rounded-lg overflow-hidden glass-card relative h-48 md:h-90"
                 >
                   <img
                     src={card.poster}
