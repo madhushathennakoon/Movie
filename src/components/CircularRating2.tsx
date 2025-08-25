@@ -23,7 +23,7 @@ export function CircularRating2({
     sm: {
       container: "w-12 h-12",
       text: "text-xs",
-      strokeWidth: 3,
+      strokeWidth: 6,
       fontSize: "10px",
     },
     md: {

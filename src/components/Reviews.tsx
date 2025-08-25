@@ -39,7 +39,7 @@ const Reviews = () => {
     <section className="py-8 md:py-5 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex items-center justify-start gap-x-4 md:justify-between mb-2 md:mb-2">
+        <div className="flex items-center justify-start gap-x-4 md:justify-between mb-2 md:mb-4">
           <div>
             <h2 className="heading-cinematic text-2xl md:text-3xl lg:text-4xl text-white mb-1">
               Reviews

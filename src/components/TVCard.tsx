@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { CircularRating1 } from "./CircularRating1";
+import { CircularRating2 } from "./CircularRating2";
 
-interface MovieCardProps {
+interface TVCardProps {
   id: string;
   title: string;
   poster: string;
@@ -14,7 +14,7 @@ interface MovieCardProps {
   onClick?: () => void;
 }
 
-const MovieCard = ({
+const TVCard = ({
   id,
   title,
   poster,
@@ -24,7 +24,7 @@ const MovieCard = ({
   description,
   size = "md",
   onClick,
-}: MovieCardProps) => {
+}: TVCardProps) => {
   return (
     <div className="cursor-pointer">
       <div className="max-w-40">
@@ -49,7 +49,7 @@ const MovieCard = ({
         {/* CircularRating1 floating half outside the card */}
         <div className="relative">
           <div className="absolute -top-5 left-3 z-10">
-            <CircularRating1
+            <CircularRating2
               rating={rating}
               size="sm"
               className="bg-black/20 backdrop-blur-sm rounded-full p-1"
@@ -75,4 +75,4 @@ const MovieCard = ({
   );
 };
 
-export default MovieCard;
+export default TVCard;

@@ -2,8 +2,9 @@
 
 import { useState, useRef } from "react";
 import MovieCard from "./MovieCard";
+import TVCard from "./TVCard";
 
-interface TrendingMovie {
+interface TrendingTVShows {
   id: string;
   title: string;
   poster: string;
@@ -16,25 +17,27 @@ interface TrendingMovie {
 }
 
 // Sample trending movies data
-const trendingMovies: TrendingMovie[] = [
+const trendingTVShows: TrendingTVShows[] = [
   {
     id: "1",
-    title: "The Batman",
-    poster: "https://image.tmdb.org/t/p/w500/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg",
-    rating: 8.5,
-    year: "Jul 01, 2022",
-    genre: ["Action", "Crime", "Drama"],
+    title: "Wednesday",
+    poster:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/36xXlhEpQqVVPuiZhfoQuaY4OlA.jpg",
+    rating: 84,
+    year: "Nov 23, 2022",
+    genre: ["Sci-Fi", "Fantasy", "Mystery", "Comedy"],
     description:
-      "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption.",
+      "Smart, sarcastic and a little dead inside, Wednesday Addams investigates twisted mysteries while making new friends — and foes — at Nevermore Academy",
     trending: "up",
     rank: 1,
   },
   {
     id: "2",
-    title: "Top Gun: Maverick",
-    poster: "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
-    rating: 4.2,
-    year: "Nov 23, 2022",
+    title: "Peacemaker",
+    poster:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yb4F1Oocq8GfQt6iIuAgYEBokhG.jpg",
+    rating: 82,
+    year: "Jan 13, 2022",
     genre: ["Action", "Drama"],
     description:
       "After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past.",
@@ -43,10 +46,11 @@ const trendingMovies: TrendingMovie[] = [
   },
   {
     id: "3",
-    title: "Everything Everywhere All at Once",
-    poster: "https://image.tmdb.org/t/p/w500/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg",
-    rating: 9.1,
-    year: "Jul 01, 2022",
+    title: "Breaking Bad",
+    poster:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg",
+    rating: 89,
+    year: "Jan 20, 2008",
     genre: ["Action", "Adventure", "Comedy"],
     description:
       "A Chinese-American woman gets swept up in an insane adventure, where she alone can save existence.",
@@ -55,10 +59,11 @@ const trendingMovies: TrendingMovie[] = [
   },
   {
     id: "4",
-    title: "Avatar: The Way of Water",
-    poster: "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-    rating: 8.9,
-    year: "Nov 23, 2022",
+    title: "Supernaturalr",
+    poster:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/KoYWXbnYuS3b0GyQPkbuexlVK9.jpg",
+    rating: 83,
+    year: "Sap 13, 2005",
     genre: ["Action", "Adventure", "Sci-Fi"],
     description:
       "Jake Sully lives with his newfound family formed on the planet of Pandora.",
@@ -67,10 +72,11 @@ const trendingMovies: TrendingMovie[] = [
   },
   {
     id: "5",
-    title: "Black Panther: Wakanda Forever",
-    poster: "https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
-    rating: 6.1,
-    year: "Nov 23, 2022",
+    title: "Alien: Earth",
+    poster:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yueXS3q8BtoWekcHOATFHicLl3e.jpg",
+    rating: 78,
+    year: "Aug 12, 2025",
     genre: ["Action", "Adventure", "Drama"],
     description:
       "Queen Ramonda, Shuri, M'Baku, Okoye and the Dora Milaje fight to protect their nation.",
@@ -79,10 +85,11 @@ const trendingMovies: TrendingMovie[] = [
   },
   {
     id: "6",
-    title: "The Menu",
-    poster: "https://image.tmdb.org/t/p/w500/v31MsWhF9WFh7Qooq6xSBbmJxoG.jpg",
-    rating: 7.9,
-    year: "Nov 23, 2022",
+    title: "The Summer I Turned Pretty",
+    poster:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xBIz53wYWsKfFpN0TaizVAjKJ0z.jpg",
+    rating: 82,
+    year: "Jun 16, 2022",
     genre: ["Comedy", "Horror", "Thriller"],
     description:
       "A young couple travels to a remote island to eat at an exclusive restaurant.",
@@ -91,10 +98,11 @@ const trendingMovies: TrendingMovie[] = [
   },
   {
     id: "7",
-    title: "Everything Everywhere All at Once",
-    poster: "https://image.tmdb.org/t/p/w500/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg",
-    rating: 5.6,
-    year: "Nov 23, 2022",
+    title: "The Rookie",
+    poster:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/bL1mwXDnH5fCxqc4S2n40hoVyoe.jpg",
+    rating: 85,
+    year: "Oct 16, 2018",
     genre: ["Action", "Adventure", "Comedy"],
     description:
       "A Chinese-American woman gets swept up in an insane adventure, where she alone can save existence.",
@@ -103,10 +111,24 @@ const trendingMovies: TrendingMovie[] = [
   },
   {
     id: "8",
-    title: "Avatar: The Way of Water",
-    poster: "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-    rating: 8.9,
-    year: "Jul 01, 2022",
+    title: "In the Mud",
+    poster:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9JWQYB7FkGtg47wFO7GOrUDgYrx.jpg",
+    rating: 80,
+    year: "Aug 14, 2025",
+    genre: ["Action", "Adventure", "Sci-Fi"],
+    description:
+      "Jake Sully lives with his newfound family formed on the planet of Pandora.",
+    trending: "down",
+    rank: 4,
+  },
+  {
+    id: "9",
+    title: "Prison Break",
+    poster:
+      "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5E1BhkCgjLBlqx557Z5yzcN0i88.jpg",
+    rating: 81,
+    year: "Aug 29, 2005",
     genre: ["Action", "Adventure", "Sci-Fi"],
     description:
       "Jake Sully lives with his newfound family formed on the planet of Pandora.",
@@ -115,7 +137,7 @@ const trendingMovies: TrendingMovie[] = [
   },
 ];
 
-export function TrendingSliderMovies() {
+export function TrendingSliderTVShows() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -152,7 +174,7 @@ export function TrendingSliderMovies() {
         <div className="flex items-center justify-between mb-2 md:mb-4">
           <div>
             <h2 className="heading-cinematic text-2xl md:text-3xl lg:text-4xl text-white mb-2">
-              Trending Movies
+              Trending TV Shows
             </h2>
           </div>
 
@@ -196,9 +218,9 @@ export function TrendingSliderMovies() {
             className="flex space-x-4 md:space-x-6 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {trendingMovies.map((movie, index) => (
+            {trendingTVShows.map((movie, index) => (
               <div key={movie.id} className="relative flex-shrink-0">
-                <MovieCard
+                <TVCard
                   id={movie.id}
                   title={movie.title}
                   poster={movie.poster}
@@ -212,6 +234,20 @@ export function TrendingSliderMovies() {
                     console.log("Navigate to movie:", movie.id);
                   }}
                 />
+                {/* <MovieCard
+                  id={movie.id}
+                  title={movie.title}
+                  poster={movie.poster}
+                  rating={movie.rating}
+                  year={movie.year}
+                  genre={movie.genre}
+                  description={movie.description}
+                  size="sm"
+                  onClick={() => {
+                    // Handle movie click - would navigate to movie detail page
+                    console.log("Navigate to movie:", movie.id);
+                  }}
+                /> */}
               </div>
             ))}
           </div>
