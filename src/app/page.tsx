@@ -2,6 +2,7 @@ import { HeroCarousel } from "@/components/HeroCarousel";
 import MovieCollection from "@/components/MovieCollection";
 import Reviews from "@/components/Reviews";
 import { TrendingSliderMovies } from "@/components/TrendingSliderMovies";
+import { TrendingSliderTVShows } from "@/components/TrendingSliderTVShows";
 import React from "react";
 
 const HomePage = () => {
@@ -12,6 +13,7 @@ const HomePage = () => {
         <TrendingSliderMovies />
         <Reviews />
         <MovieCollection />
+        <TrendingSliderTVShows />
       </div>
     </main>
   );
