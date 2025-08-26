@@ -146,7 +146,7 @@ export function TrendingSliderMovies() {
   };
 
   return (
-    <section className="pt-10 -mb-4">
+    <section className="pt-8 md:pt-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-2 md:mb-4">

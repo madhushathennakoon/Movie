@@ -1,4 +1,5 @@
 import { HeroCarousel } from "@/components/HeroCarousel";
+import LatestMovie from "@/components/LatestMovie";
 import MovieCollection from "@/components/MovieCollection";
 import Reviews from "@/components/Reviews";
 import { TrendingSliderMovies } from "@/components/TrendingSliderMovies";
@@ -14,6 +15,7 @@ const HomePage = () => {
         <Reviews />
         <MovieCollection />
         <TrendingSliderTVShows />
+        <LatestMovie />
       </div>
     </main>
   );

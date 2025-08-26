@@ -58,7 +58,7 @@ const MovieCard = ({
         </div>
       </div>
 
-      <div className="max-w-40 p-3 mb-8 mt-6 group">
+      <div className="max-w-40 p-3  mt-6 group">
         <a href="#">
           <h3
             title={title}

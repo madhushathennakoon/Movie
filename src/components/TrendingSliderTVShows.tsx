@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import MovieCard from "./MovieCard";
 import TVCard from "./TVCard";
 
 interface TrendingTVShows {
@@ -168,7 +167,7 @@ export function TrendingSliderTVShows() {
   };
 
   return (
-    <section className="pt-10 -mb-4">
+    <section className="pt-8 md:pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-2 md:mb-4">
@@ -234,20 +233,6 @@ export function TrendingSliderTVShows() {
                     console.log("Navigate to movie:", movie.id);
                   }}
                 />
-                {/* <MovieCard
-                  id={movie.id}
-                  title={movie.title}
-                  poster={movie.poster}
-                  rating={movie.rating}
-                  year={movie.year}
-                  genre={movie.genre}
-                  description={movie.description}
-                  size="sm"
-                  onClick={() => {
-                    // Handle movie click - would navigate to movie detail page
-                    console.log("Navigate to movie:", movie.id);
-                  }}
-                /> */}
               </div>
             ))}
           </div>
